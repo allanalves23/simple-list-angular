@@ -3,7 +3,7 @@
         <mat-progress-spinner color="primary" mode="indeterminate"></mat-progress-spinner>
         <span>Carregando, por favor aguarde...</span>
     </div>
-    <div *ngIf="!isLoading && users.length > 0" class="content">
+    <div *ngIf="!isLoading && users && users.length > 0" class="content">
         <mat-card class="custom-card" *ngFor="let user of users">
             <mat-card-header class="card-header">
                 <img mat-card-avatar class="example-header-image" src="{{imgPath}}{{user.photo}}" alt="Photo of a Shiba Inu">
@@ -14,7 +14,7 @@
             </mat-card-header>
             <hr>
             <mat-card-actions class="card-actions">
-                <button mat-button color="primary">VISUALIZAR</button>
+                <button mat-button color="primary" (click)="openDialog(user)">VISUALIZAR</button>
             </mat-card-actions>
         </mat-card>
     </div>

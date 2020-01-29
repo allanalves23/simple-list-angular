@@ -1,6 +1,15 @@
-.icon{
+$black: #000;
+
+.navbar-icon{
     transform: scale(2);
-    margin: 0px 20px;
+}
+
+.angular-app-label{
+    padding: 0px 20px;
+}
+
+.menu-icon{
+    color: $black;
 }
 
 .navbar-content{

@@ -1,5 +1,5 @@
-$cardBackGroundColor: #fff;
-$cardFontColor: #555;
+$white: #fff;
+$dark: #555;
 
 
 .container{
@@ -20,8 +20,8 @@ $cardFontColor: #555;
 }
 
 .custom-card {
-    background-color: $cardBackGroundColor;
-    color: $cardFontColor;
+    background-color: $white;
+    color: $dark;
 }
 
 .card-header{
@@ -39,7 +39,7 @@ $cardFontColor: #555;
 }
 
 .card-subtitle{
-    color: $cardFontColor;
+    color: $dark;
     text-align: center;
 }
 
@@ -56,10 +56,14 @@ $cardFontColor: #555;
     margin: 15px;
 }
 
-.card-actions{
+.card-actions, .dialog-actions{
     display: flex;
     justify-content: flex-end;
     align-items: center;
+}
+
+.mat-form-field-type-mat-native-select.mat-form-field-disabled .mat-form-field-infix::after, .mat-input-element:disabled{
+    color: $white;
 }
 
 @media(max-width: 1000px){

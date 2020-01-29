@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -9,6 +10,12 @@ export class NavbarComponent implements OnInit {
 
   constructor() { }
 
+  @Input() requestMethodBehavior : BehaviorSubject<string>;
+
+  changeRequestMethod(type: string) : void {
+    this.requestMethodBehavior.next(type);
+  }
+  
   ngOnInit() {
   }
 

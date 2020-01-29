@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>Dados do usuário</h1>
+<div mat-dialog-content>
+    <mat-form-field>
+        <mat-label>Nome</mat-label>
+        <input matInput value="{{user.name}}" disabled>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Profissão</mat-label>
+        <input matInput value="{{user.role}}" disabled>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Nacionalidade</mat-label>
+        <input matInput value="{{user.country}}" disabled>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions class="dialog-actions">
+    <button mat-button (click)="onNoClick()">Fechar</button>
+</div>

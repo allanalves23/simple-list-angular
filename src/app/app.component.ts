@@ -1,4 +1,5 @@
 import { Component, NgModule, Input } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,5 @@ import { Component, NgModule, Input } from '@angular/core';
 
 export class AppComponent {
   title = 'simple-list';
+  behaviorToRequestMethod = new BehaviorSubject<string>('fetch-api');
 }

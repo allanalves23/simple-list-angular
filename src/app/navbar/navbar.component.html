@@ -1,16 +1,31 @@
 <mat-toolbar color="primary">
     <div class="navbar-content">
         <div class="navbar-item">
-            <mat-icon class="icon">code</mat-icon>
-            <span>Angular APP</span>
+            <mat-icon class="navbar-icon">code</mat-icon>
+            <span class="angular-app-label">Angular APP</span>
         </div>
         <div class="navbar-item">
             <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Alterar método de busca">
                 <mat-icon>settings</mat-icon>
             </button>
             <mat-menu #menu="matMenu">
-                <button mat-menu-item>Pesquisar com fetch API</button>
-                <button mat-menu-item>Pesquisar com httpClient</button>
+                <button 
+                mat-menu-item 
+                (click)="changeRequestMethod('fetch-api')" 
+                [ngClass]="{'selected': this.requestMethodBehavior.value === 'fetch-api'}"
+                >
+                <mat-icon class="menu-icon" *ngIf="this.requestMethodBehavior.value === 'fetch-api'; else notSelected">done</mat-icon>
+                <ng-template #notSelected><mat-icon class="menu-icon">clear</mat-icon></ng-template>
+                    Pesquisar com fetch API
+                </button>
+                <button 
+                mat-menu-item 
+                (click)="changeRequestMethod('http-client')" 
+                >
+                    <mat-icon class="menu-icon" *ngIf="this.requestMethodBehavior.value === 'http-client'; else notSelected">done</mat-icon>
+                    <ng-template #notSelected><mat-icon class="menu-icon">clear</mat-icon></ng-template>
+                    Pesquisar com httpClient
+                </button>
             </mat-menu>
         </div>
     </div>
