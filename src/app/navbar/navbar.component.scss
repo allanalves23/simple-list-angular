@@ -1,0 +1,17 @@
+.icon{
+    transform: scale(2);
+    margin: 0px 20px;
+}
+
+.navbar-content{
+    width: 100%;
+    margin: 0px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-item{
+    display: flex;
+    align-items: center;
+}

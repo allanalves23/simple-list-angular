@@ -1,0 +1,8 @@
+[
+    {"name": "Allan Wanderley", "role": "Full stack developer", "photo": "1.jpg"},
+    {"name": "Augusto da Silva", "role": "Back end developer", "photo": "2.jpg"},
+    {"name": "Ana Silva", "role": "Front end developer", "photo": "3.jpg"},
+    {"name": "Beatriz Alves", "role": "Full stack developer", "photo": "4.jpg"},
+    {"name": "Matheus Souza", "role": "TI manager", "photo": "5.jpg"},
+    {"name": "Cristiano Pereira", "role": "Computer engineer", "photo": "6.jpg"}
+]
