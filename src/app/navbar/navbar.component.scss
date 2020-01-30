@@ -1,7 +1,7 @@
 $black: #000;
 
 .navbar-icon{
-    transform: scale(2);
+    transform: scale(1.7);
 }
 
 .angular-app-label{
@@ -9,7 +9,7 @@ $black: #000;
 }
 
 .menu-icon{
-    color: $black;
+    color: $black !important;
 }
 
 .navbar-content{
@@ -23,4 +23,8 @@ $black: #000;
 .navbar-item{
     display: flex;
     align-items: center;
+}
+
+.custom-tooltip{
+    font-size: 15px;
 }
