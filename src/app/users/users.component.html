@@ -6,7 +6,6 @@
     <div class="hud-area">
         <mat-slide-toggle
             class="example-margin"
-            [color]="primary"
             (click)="changeRequestMethod(this.method === 'fetch-api' ? 'http-client' : 'fetch-api')"
         >
             {{this.method === 'fetch-api' ? 'Requisitado com fetch API' : 'Requisitado com http client'}}
