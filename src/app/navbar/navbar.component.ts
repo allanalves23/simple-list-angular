@@ -1,5 +1,4 @@
-import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 import { faAngular, faReact } from '@fortawesome/free-brands-svg-icons';
 
@@ -9,24 +8,15 @@ import { faAngular, faReact } from '@fortawesome/free-brands-svg-icons';
   styleUrls: ['./navbar.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent{
 
   constructor() { }
 
   faAngular = faAngular;
   faReact = faReact;
 
-  @Input() requestMethodBehavior : BehaviorSubject<string>;
-
-  changeRequestMethod(type: string) : void {
-    this.requestMethodBehavior.next(type);
-  }
-
   goToReactApp() : void{
     window.location.href = 'https://allanalves23.github.io/simple-list-react/';
-  }
-  
-  ngOnInit() {
   }
 
 }

@@ -1,7 +1,6 @@
-import { Component, OnInit, Input, Inject } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 
 import { UsersService } from './users.service';
-import { BehaviorSubject } from 'rxjs';
 
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
@@ -20,17 +19,23 @@ export interface User {
 
 export class UsersComponent implements OnInit {
 
-  @Input() requestMethodBehavior : BehaviorSubject<string>;
-
-  users: Array<Object>;
+  users: Array<User>;
   isLoading: Boolean;
   imgPath: string;
   url: string;
+  method: string;
 
   constructor(private usersService: UsersService, public dialog: MatDialog) {
     this.isLoading = false;
     this.imgPath = './assets/img/img-users/';
     this.url = './assets/json/users.json';
+    this.method = 'fetch-api';
+    this.users = [];
+  }
+
+  changeRequestMethod(method : string) : void{
+    this.method = method;
+    this.getUsers(this.method);
   }
 
   openDialog(data : User): void {
@@ -57,7 +62,7 @@ export class UsersComponent implements OnInit {
     fetch(this.url)
     .then( response => {
       return response.json();
-    }).then( (data : Array<Object>) => {
+    }).then( (data : Array<User>) => {
       this.users = data;
       if(this.isLoading) this.toogleStateLoading();
     })
@@ -65,16 +70,14 @@ export class UsersComponent implements OnInit {
 
   getWithHttpClient() : void{
     this.usersService.getUsers(this.url)
-      .subscribe( (data : Array<Object>) => {
+      .subscribe( (data : Array<User>) => {
         this.users = data;
         if(this.isLoading) this.toogleStateLoading();
       });
   }
 
   ngOnInit() {
-    this.requestMethodBehavior.subscribe( (value : string) => {
-      this.getUsers(value);
-    })
+    this.getUsers(this.method);
   }
 }
 @Component({

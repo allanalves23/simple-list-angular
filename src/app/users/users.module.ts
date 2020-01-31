@@ -8,7 +8,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
-import {MatFormFieldModule, MatInputModule, MatLabel} from '@angular/material';
+import {MatFormFieldModule, MatInputModule} from '@angular/material';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import {MatFormFieldModule, MatInputModule, MatLabel} from '@angular/material';
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSlideToggleModule
   ],
   entryComponents: [UserDialog],
   exports: [

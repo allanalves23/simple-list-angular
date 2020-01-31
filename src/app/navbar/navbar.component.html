@@ -14,40 +14,6 @@
             >
                 <fa-icon [icon]="faReact"></fa-icon>
             </button>
-            <button mat-icon-button [matMenuTriggerFor]="menu">
-                <mat-icon>settings</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu">
-                <button 
-                    mat-menu-item 
-                    (click)="changeRequestMethod('fetch-api')" 
-                    [ngClass]="{'selected': this.requestMethodBehavior.value === 'fetch-api'}"
-                >
-                    <mat-icon class="menu-icon" *ngIf="this.requestMethodBehavior.value === 'fetch-api'; else notSelected">
-                        done
-                    </mat-icon>
-                    <ng-template #notSelected>
-                        <mat-icon class="menu-icon">
-                            clear
-                        </mat-icon>
-                    </ng-template>
-                        Pesquisar com fetch API
-                </button>
-                <button 
-                    mat-menu-item 
-                    (click)="changeRequestMethod('http-client')" 
-                >
-                    <mat-icon class="menu-icon" *ngIf="this.requestMethodBehavior.value === 'http-client'; else notSelected">
-                        done
-                    </mat-icon>
-                    <ng-template #notSelected>
-                        <mat-icon class="menu-icon">
-                            clear
-                        </mat-icon>
-                    </ng-template>
-                    Pesquisar com httpClient
-                </button>
-            </mat-menu>
         </div>
     </div>
 </mat-toolbar>
