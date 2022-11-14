@@ -1,0 +1,63 @@
+name: github ci
+on:
+  workflow_dispatch:
+  push:
+    branches:
+    - master
+    - main
+  
+jobs:
+  ci:
+    name: Deploy to LW
+    runs-on: ubuntu-latest
+  
+    steps:
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v3.5.1
+      with:
+        # Version Spec of the version to use. Examples: 12.x, 10.15.1, >=10.15.0.
+        node-version: 14.x
+
+    - name: Cache node modules
+      id: cache-nodemodules
+      uses: actions/cache@v2
+      env:
+        cache-name: cache-node-modules
+      with:
+        # caching node_modules
+        path: node_modules
+        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-build-${{ env.cache-name }}-
+          ${{ runner.os }}-build-
+          ${{ runner.os }}-
+          
+    - name: testing directory
+      run: |
+        ls -a
+        cd ..
+        ls -a
+        cd ..
+        ls -a
+          
+    - name: Install Dependencies
+      if: steps.cache-nodemodules.outputs.cache-hit != 'true'
+      run: |
+        npm ci
+        
+    - name: angular install
+      run: |
+        sudo npm install -g @angular/cli
+
+    - name: production build
+      run: |
+        ng build --configuration=production
+
+    - name: studies-lwftp-testing
+      uses: allanalves23/ftp-action-studies@0.0.2
+      with:
+        host: "ftp.brqdomaintest1.hospedagemdesites.ws"
+        user: "brqdomaintest1"
+        password: "Pass123456789@"
+        localDir: "dist/my-first-project"
+        remoteDir: "public_html"
